@@ -142,3 +142,25 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+//DESTRUCTURING
+const book = getBook(1);
+book;
+
+const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+  book;
+console.log(title, author, pages, publicationDate, genres, hasMovieAdaptation);
+
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres; // takes element 0 and 1
+console.log(primaryGenre, secondaryGenre, otherGenres);
+
+// REST AND SPREAD OPERATOR
+// rest is not so widely used - line 154
+
+// spread operators
+const newGenre = [...genres, "epic fantasy"];
+newGenre;
+
+// movieReleaseDate adds a new key, pages will overwrite the existing value
+const updatedBook = { ...book, movieReleaseDate: "2001-12-19", pages: 1210 };
+updatedBook;
