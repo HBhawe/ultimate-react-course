@@ -143,6 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/*
 //DESTRUCTURING
 const book = getBook(1);
 book;
@@ -157,6 +158,9 @@ console.log(primaryGenre, secondaryGenre, otherGenres);
 // REST AND SPREAD OPERATOR
 // rest is not so widely used - line 154
 
+const getYearArrow = (str) => str.split("-")[0];
+console.log(getYearArrow(publicationDate));
+
 // spread operators
 const newGenre = [...genres, "epic fantasy"];
 newGenre;
@@ -164,3 +168,132 @@ newGenre;
 // movieReleaseDate adds a new key, pages will overwrite the existing value
 const updatedBook = { ...book, movieReleaseDate: "2001-12-19", pages: 1210 };
 updatedBook;
+
+const summary = `${title}, a ${pages}-page long book, was written by ${author}, and published in ${getYearArrow(publicationDate)}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted into a movie`;
+summary;
+
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+pagesRange;
+
+console.log(`The book has ${pagesRange} pages`);
+
+// ARROW FUNCTIONS
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+// console.log(getYear(publicationDate));
+
+// SHORT CIRCUITING
+
+// && operator
+console.log(true && "Some value"); // returns the 2nd
+console.log(false && "hello"); // returns false
+console.log(hasMovieAdaptation && "This book has a movie"); // returns this book has a movie
+console.log("jonas" && "some string");
+console.log(0 && "some string");
+
+// || operator
+console.log(true || "some string");
+console.log(false || "some string");
+
+console.log(book.translations?.spanish);
+
+const spanishTranslation = book.translations.spanish || "NOT TRANSLATED";
+console.log(spanishTranslation);
+
+console.log(book.reviews.librarything.reviewsCount);
+
+// NULLISH COALESCING OPERATOR
+
+const count = book.reviews.librarything.reviewsCount ?? "no data";
+count;
+
+// OPTIONAL CHAINING (?.)
+
+
+
+console.log(getReviewsCount(book));
+
+console.log(getReviewsCount(getBook(3)));
+console.log(getReviewsCount(getBook(4)));
+console.log(getReviewsCount(getBook(5)));
+*/
+
+// ARRAY MAP
+const books = getBooks();
+
+const getReviewsCount = function (book) {
+  const goodReadsReview = book?.reviews?.goodreads?.reviewsCount ?? 0;
+  const libraryThingReview = book?.reviews?.librarything?.reviewsCount ?? 0;
+  return goodReadsReview + libraryThingReview;
+};
+
+books.map((book) => {
+  console.log(book);
+});
+
+const titles = books.map((book) => book.title);
+console.log(titles);
+
+const essentialData = books.map((book) => {
+  return {
+    title: book.title,
+    author: book.author,
+    reviewsCount: getReviewsCount(book),
+  };
+});
+essentialData;
+
+// ARRAY FILTER
+const longBooksWithMovieAdaptation = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+console.log(longBooksWithMovieAdaptation);
+
+const adventureBooks = books
+  .filter((book) => book.genres.includes("adventure"))
+  .map((book) => book.title);
+console.log(adventureBooks);
+
+// ARRAY REDUCE METHOD
+
+const pagesAllBooks = books.reduce((sum, book) => sum + book.pages, 0);
+pagesAllBooks;
+
+// ARRAY SORT METHOD
+const x = [3, 7, 1, 9, 6];
+
+// SORT IS DESTRUCTIVE
+// take a copy of it first
+const ascSort = x.slice().sort((a, b) => a - b);
+ascSort;
+
+const desSort = x.slice().sort((a, b) => b - a);
+desSort;
+
+x;
+
+const sortedByPages = books.slice().sort((a, b) => a.pages - b.pages);
+sortedByPages;
+
+// WORKING WITH IMMUTABLE ARRAYS
+// 1) add book object to array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J.K. Rowling",
+};
+
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+// 2) Delete a book object from the array
+const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+booksAfterDelete;
+
+// 3) Update a book object in the array
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1210 } : book,
+);
+
+booksAfterUpdate;
