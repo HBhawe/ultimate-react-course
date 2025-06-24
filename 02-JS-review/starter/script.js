@@ -217,7 +217,7 @@ console.log(getReviewsCount(book));
 console.log(getReviewsCount(getBook(3)));
 console.log(getReviewsCount(getBook(4)));
 console.log(getReviewsCount(getBook(5)));
-*/
+
 
 // ARRAY MAP
 const books = getBooks();
@@ -297,3 +297,25 @@ const booksAfterUpdate = booksAfterDelete.map((book) =>
 );
 
 booksAfterUpdate;
+*/
+
+// PROMISES
+// fetch API
+
+// console.log(fetch("https://jsonplaceholder.typicode.com/todos"));
+/*
+const apiRequest = fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((response) => response.json())
+  .then((json) => console.log(json));
+  */
+
+// async/await methods
+
+const getTodos = async function () {
+  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await response.json();
+  return data;
+};
+
+const todos = getTodos();
+todos;
