@@ -58,11 +58,6 @@ function App() {
 }
 
 function Header() {
-  //   const style = {
-  //     color: "red",
-  //     fontSize: "40px",
-  //     textTransform: "uppercase",
-  //   };
   const style = {};
   return (
     <header className="header">
@@ -75,32 +70,26 @@ function Menu() {
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <Pizza
-        name="Pizza Spinaci"
-        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-        photoName="/pizzas/spinaci.jpg"
-        price={10}
-      />
-      <Pizza
-        name="Pizza Funghi"
-        ingredients="Tomato, mozarella, mushrooms, and onion"
-        photoName="/pizzas/funghi.jpg"
-        price={12}
-      />
+
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza pizzaObject={pizza} key={pizza.name} />
+        ))}
+      </ul>
     </main>
   );
 }
 
 function Pizza(props) {
   return (
-    <div className="pizza">
-      <img src={props.photoName} alt={props.name}></img>
+    <li className="pizza">
+      <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name}></img>
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price + 3}</span>
+        <h3>{props.pizzaObject.name}</h3>
+        <p>{props.pizzaObject.ingredients}</p>
+        <span>{props.pizzaObject.price}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
@@ -110,19 +99,15 @@ function Footer() {
   const closeHour = 22;
 
   const isOpen = hour >= openHour && hour <= closeHour;
-  //   console.log(isOpen);
 
-  //   if (hour >= openHour && hour <= closeHour) alert("We're currently open");
-  //   else alert("Oops we're closed");
   return (
     <footer className="footer">
       {new Date().toLocaleTimeString()}. We're currently open
     </footer>
   );
-  //   return React.createElement("footer", null, "We're currently open");
 }
 
-// REACT V18
+// REACT V18+
 const root = ReactDOM.createRoot(document.querySelector("#root"));
 root.render(
   <React.StrictMode>
