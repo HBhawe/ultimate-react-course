@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DeveloperToolsToolWindowSettingsV1" lastSelectedContentNodeId="uuid-generator" pluginVersion="7.1.0">
+    <developerToolsConfigurations>
+      <developerToolConfiguration developerToolId="uuid-generator" id="67bb27b1-bae3-437b-8059-e725f24c7eba" name="Workbench">
+        <properties>
+          <property key="version" type="CONFIGURATION" value="UuidVersion|V7" />
+        </properties>
+      </developerToolConfiguration>
+    </developerToolsConfigurations>
+  </component>
+</project>
