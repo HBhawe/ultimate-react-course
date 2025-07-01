@@ -14,7 +14,7 @@ export function AccordionItem({ index, faq }) {
           {index < 9 ? `0${index + 1}` : index + 1}
         </div>
         <div className={"title text"}>{faq.title}</div>
-        <div className={"icon"}>+</div>
+        <div className={"icon"}>{open ? "-" : "+"}</div>
         {open ? <div className="content-box">{faq.text}</div> : null}
       </ul>
     </div>
