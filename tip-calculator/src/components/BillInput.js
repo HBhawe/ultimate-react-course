@@ -1,4 +1,4 @@
-export function Bill({ bill, children, setBill }) {
+export function BillInput({ bill, children, setBill }) {
   return (
     <div className="bill">
       <p>{children}</p>
@@ -6,6 +6,7 @@ export function Bill({ bill, children, setBill }) {
         type={"number"}
         value={bill}
         onChange={(e) => setBill(Number(e.target.value))}
+        placeholder={"Bill value"}
       ></input>
     </div>
   );
