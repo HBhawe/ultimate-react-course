@@ -7,14 +7,6 @@ const messages = [
 ];
 
 export default function App() {
-  return (
-    <div>
-      <Steps />
-    </div>
-  );
-}
-
-function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   function handlePrevious() {
@@ -43,35 +35,21 @@ function Steps() {
           </p>
 
           <div className="buttons">
-            <Button
-              backgroundColor="#7950f2"
-              textColour="#fff"
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
               onClick={handlePrevious}
             >
-              <span>⬅️</span> Previous
-            </Button>
-            <Button
-              backgroundColor="#7950f2"
-              textColour="#fff"
+              Previous
+            </button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
               onClick={handleNext}
             >
-              Next <span>➡️</span>
-            </Button>
+              Next
+            </button>
           </div>
         </div>
       )}
     </div>
-  );
-}
-
-// reusable button component with the children prop
-function Button({ textColour, backgroundColor, onClick, children }) {
-  return (
-    <button
-      style={{ backgroundColor: backgroundColor, color: textColour }}
-      onClick={onClick}
-    >
-      {children}
-    </button>
   );
 }
