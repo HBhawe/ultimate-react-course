@@ -1,0 +1,87 @@
+:root {
+  --color-lightest: #fff4e6;
+  --color-light: #ffe8cc;
+  --color-medium: #ffa94d;
+  --color-dark: #ff922b;
+}
+
+body {
+  margin: 0;
+  font-family: monospace;
+}
+
+.header{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.header h2{
+  margin: 15px;
+  font-size: xxx-large;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+li {
+  padding: 1.2rem;
+  border-radius: 7px;
+  transition: 0.5s;
+  display: grid;
+  grid-template-columns: 0.8fr 0.2fr;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li:hover {
+  background-color: var(--color-lightest);
+}
+
+.button {
+  background-color: var(--color-medium);
+  color: #343a40;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin: 0 0  0 10px;
+}
+
+.button:hover {
+  background-color: var(--color-dark);
+}
+
+.note-view, form{
+  display: grid;
+  margin: 20px;
+}
+
+.submit-button{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.note-form{
+  display: grid;
+  grid-template-rows: 0.2fr 0.1fr 0.6fr 0.1fr;
+  margin: 0;
+  gap: 5px;
+}
+
+textarea{
+  border-radius: 5px;
+}
