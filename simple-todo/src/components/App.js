@@ -1,65 +1,67 @@
 import { useState } from "react";
 import "../App.css";
-
-const initialToDos = [
-  { title: "todo1", isChecked: false, id: crypto.randomUUID() },
-  { title: "todo2", isChecked: true, id: crypto.randomUUID() },
-  { title: "todo3", isChecked: false, id: crypto.randomUUID() },
-];
+import { NewTodo } from "./NewTodo";
+import { ToDoView } from "./ToDoView";
+import { Button } from "./Button";
+import { Header } from "./Header";
 
 function App() {
   // STATES
-  const [todos, setTodos] = useState(initialToDos);
+  const [todos, setTodos] = useState([]);
+  const [showTodoForm, setShowTodoForm] = useState(false);
+  const [todoName, setTodoName] = useState("");
 
-  function handleAddToDo(newTodo) {
+  // DERIVED STATE
+  const todosRemaining = todos.filter((todo) => !todo.isChecked).length;
+
+  function handleAddToDo(e) {
+    e.preventDefault();
+
+    // guard clause
+    if (!todoName) return;
+
+    const newTodo = {
+      title: todoName,
+      isChecked: false,
+      id: crypto.randomUUID(),
+    };
+
     setTodos([...todos, newTodo]);
+    setShowTodoForm();
+    setTodoName("");
+  }
+
+  function handleShowTodoForm() {
+    setShowTodoForm(!showTodoForm);
+  }
+
+  function handleCheckedTodos(id) {
+    const newTodos = todos.map((todo) => {
+      if (id === todo.id) {
+        todo.isChecked = !todo.isChecked;
+      }
+      return todo;
+    });
+    setTodos(newTodos);
   }
 
   return (
     <div className={"container"}>
-      <Header todos={todos}>ToDos</Header>
+      <Header todosRemaining={todosRemaining}>ToDos</Header>
       <div className="app">
-        <ToDoView todos={todos} />
+        {showTodoForm || (
+          <Button onHandleClick={handleShowTodoForm}>New ToDo</Button>
+        )}
+        {showTodoForm && (
+          <NewTodo
+            onSubmit={handleAddToDo}
+            name={todoName}
+            onTodoChange={setTodoName}
+          />
+        )}
+        <ToDoView todos={todos} onCheckTodo={handleCheckedTodos} />
       </div>
     </div>
-  );
-}
-
-function Header({ todos, children }) {
-  const [todosRemaining, setTodosRemaining] = useState(
-    todos.filter((todo) => !todo.isChecked).length,
-  );
-  // const todosRemaining = ;
-  console.log(todosRemaining);
-  return <h2>{children}</h2>;
-}
-
-function ToDoView({ todos }) {
-  return (
-    <ul>
-      {todos.map((item) => (
-        <ToDo todo={item} key={item.id} />
-      ))}
-    </ul>
-  );
-}
-
-function ToDo({ todo }) {
-  const [checkedState, setCheckedState] = useState(todo.isChecked);
-
-  function handleToggle() {
-    setCheckedState(!checkedState);
-  }
-
-  return (
-    <li>
-      <input
-        type="checkbox"
-        checked={checkedState}
-        onChange={() => handleToggle()}
-      ></input>
-      {todo.title}
-    </li>
   );
 }
 
