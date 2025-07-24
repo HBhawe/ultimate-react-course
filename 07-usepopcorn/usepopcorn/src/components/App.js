@@ -11,6 +11,7 @@ import { WatchedMovieList } from "./WatchedMovieList";
 import { Loader } from "./Loader";
 import { ErrorMessage } from "./ErrorMessage";
 import { MovieDetails } from "./MovieDetails";
+import { KEY } from "./API";
 
 const tempMovieData = [
   {
@@ -58,8 +59,6 @@ const tempWatchedData = [
     userRating: 9,
   },
 ];
-
-const KEY = `c23382ca`;
 
 export default function App() {
   const [movies, setMovies] = useState([]);
