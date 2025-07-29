@@ -61,6 +61,11 @@ export function MovieDetails({
   useEffect(() => {
     if (!title) return;
     document.title = `Movie | ${title}`;
+
+    // clean-up function
+    return function () {
+      document.title = `usePopCorn`;
+    };
   }, [title]);
 
   return (
