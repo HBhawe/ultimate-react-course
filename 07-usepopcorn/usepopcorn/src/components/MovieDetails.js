@@ -31,6 +31,10 @@ export function MovieDetails({
     Genre: genre,
   } = movie;
 
+  const isTop = imdbRating > 8;
+
+  const [avgRating, setAvgRating] = useState(0);
+
   function handleAdd() {
     const newWatchedMovie = {
       imdbID: selectedId,
@@ -42,7 +46,8 @@ export function MovieDetails({
       userRating,
     };
     onAddWatched(newWatchedMovie);
-    onCloseMovie();
+    // onCloseMovie();
+    setAvgRating(Number(imdbRating));
   }
 
   useEffect(() => {
@@ -105,6 +110,7 @@ export function MovieDetails({
               </p>
             </div>
           </header>
+          <p>{avgRating}</p>
           <section>
             <div className="rating">
               {!isWatched ? (
