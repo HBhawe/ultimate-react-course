@@ -46,8 +46,8 @@ export function MovieDetails({
       userRating,
     };
     onAddWatched(newWatchedMovie);
-    // onCloseMovie();
-    setAvgRating(Number(imdbRating));
+    onCloseMovie();
+    // setAvgRating(Number(imdbRating));
   }
 
   useEffect(() => {
@@ -110,7 +110,7 @@ export function MovieDetails({
               </p>
             </div>
           </header>
-          <p>{avgRating}</p>
+          {/*<p>{avgRating}</p>*/}
           <section>
             <div className="rating">
               {!isWatched ? (
