@@ -1,11 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export function Search({ query, setQuery }) {
+  // connect ref to dom element with ref prop
+  const inputElement = useRef(null);
+
+  // activate the ref with effect to focus it
   useEffect(() => {
-    const element = document.querySelector(".search");
-    console.log(element);
-    element.focus();
+    inputElement.current.focus();
   }, []);
+  // useEffect(() => {
+  //   const element = document.querySelector(".search");
+  //   console.log(element);
+  //   element.focus();
+  // }, []);
+
   return (
     <input
       className="search"
@@ -13,6 +21,7 @@ export function Search({ query, setQuery }) {
       placeholder="Search movies..."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
+      ref={inputElement}
     />
   );
 }
