@@ -6,13 +6,20 @@ export function Search({ query, setQuery }) {
 
   // activate the ref with effect to focus it
   useEffect(() => {
-    inputElement.current.focus();
-  }, []);
-  // useEffect(() => {
-  //   const element = document.querySelector(".search");
-  //   console.log(element);
-  //   element.focus();
-  // }, []);
+    function callback(e) {
+      // guard clause
+      if (document.activeElement === inputElement.current) {
+        return;
+      }
+      if (e.code === "Enter") {
+        inputElement.current.focus();
+        setQuery("");
+      }
+    }
+    document.addEventListener("keydown", callback);
+
+    return () => document.addEventListener("keydown", callback);
+  }, [setQuery]);
 
   return (
     <input
