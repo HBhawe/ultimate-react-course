@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import { Loader } from "./Loader";
 import { KEY } from "./API";
+import { useKey } from "./useKey";
 
 export function MovieDetails({
   selectedId,
@@ -82,19 +83,8 @@ export function MovieDetails({
     };
   }, [title]);
 
-  useEffect(() => {
-    const callback = function (e) {
-      if (e.code === "Escape") {
-        onCloseMovie();
-      }
-    };
-
-    document.addEventListener("keydown", (e) => callback(e));
-
-    return function () {
-      document.removeEventListener("keydown", (e) => callback(e));
-    };
-  }, [onCloseMovie]);
+  // custom hook for escape keys
+  useKey("Escape", onCloseMovie);
 
   return (
     <div className="details">
