@@ -12,13 +12,15 @@ function convertToFlag(countryCode) {
 
 class App extends React.Component {
   state = {
-    location: "Uppsala",
+    location: "",
     isLoading: false,
     displayLocation: "",
     weather: {},
   };
 
   fetchWeather = async () => {
+    if (this.state.location.length < 1) return this.setState({ weather: {} });
+
     try {
       this.setState({ isLoading: true });
 
@@ -54,6 +56,20 @@ class App extends React.Component {
     this.setState({ location: e.target.value });
   };
 
+  //similar to useEffect with empty dependency array
+  componentDidMount() {
+    this.setState({ location: localStorage.getItem("location") || "" });
+  }
+
+  // use effect [location]
+  componentDidUpdate(prevProps, prevState) {
+    // only do the effect if the location is different
+    if (this.state.location !== prevState.location) {
+      this.fetchWeather();
+      localStorage.setItem("location", this.state.location);
+    }
+  }
+
   render() {
     return (
       <div className="app">
@@ -62,8 +78,6 @@ class App extends React.Component {
           location={this.state.location}
           onChangeLocation={this.setLocation}
         />
-        <button onClick={this.fetchWeather}>Get weather</button>
-
         {this.state.isLoading && <p className="loader">Loading....</p>}
 
         {this.state.weather.weathercode && (
