@@ -1,5 +1,6 @@
 import React from "react";
 import { Weather } from "./Weather.jsx";
+import { Input } from "./Input.jsx";
 
 function convertToFlag(countryCode) {
   const codePoints = countryCode
@@ -49,20 +50,18 @@ class App extends React.Component {
     }
   };
 
+  setLocation = (e) => {
+    this.setState({ location: e.target.value });
+  };
+
   render() {
     return (
       <div className="app">
         <h1>Classy Weather</h1>
-        <div>
-          <input
-            type="text"
-            placeholder="Search from location"
-            value={this.state.location}
-            onChange={(event) =>
-              this.setState({ location: event.target.value })
-            }
-          />
-        </div>
+        <Input
+          location={this.state.location}
+          onChangeLocation={this.setLocation}
+        />
         <button onClick={this.fetchWeather}>Get weather</button>
 
         {this.state.isLoading && <p className="loader">Loading....</p>}
@@ -77,5 +76,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;
