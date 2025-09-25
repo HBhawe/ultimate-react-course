@@ -9,7 +9,6 @@ export class Input extends React.Component {
           placeholder="Search from location"
           value={this.props.location}
           onChange={this.props.onChangeLocation}
-          autoFocus={true}
         />
       </div>
     );
