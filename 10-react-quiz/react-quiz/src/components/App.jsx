@@ -1,5 +1,7 @@
 import { useEffect, useReducer } from "react";
-import Error from "./Error.jsx";
+import ErrorMessage from "./ErrorMessage.jsx";
+import FinishScreen from "./FinishScreen.jsx";
+import Footer from "./Footer.jsx";
 import Header from "./Header.jsx";
 import Loader from "./Loader.jsx";
 import MainContent from "./MainContent.jsx";
@@ -7,8 +9,6 @@ import NextButton from "./NextButton.jsx";
 import Progress from "./Progress.jsx";
 import Question from "./Question.jsx";
 import StartScreen from "./StartScreen.jsx";
-import FinishScreen from "./FinishScreen.jsx";
-import Footer from "./Footer.jsx";
 import Timer from "./Timer.jsx";
 
 const initialState = {
@@ -101,7 +101,7 @@ function App() {
 			<Header />
 			<MainContent>
 				{status === "loading" && <Loader />}
-				{status === "error" && <Error />}
+				{status === "error" && <ErrorMessage />}
 				{status === "ready" && (
 					<StartScreen numQuestions={numQuestions} dispatch={dispatch} />
 				)}
