@@ -122,21 +122,21 @@ progress {
 	transition: 0.3s;
 }
 
-
-.btn, .btn-disabled{
-    display: block;
-    font-family: inherit;
-    color: inherit;
-    font-size: 2rem;
-    border: 2px solid var(--color-dark);
-    border-radius: 100px;
-    padding: 1.2rem 2.4rem;
+.btn,
+.btn-disabled {
+	display: block;
+	font-family: inherit;
+	color: inherit;
+	font-size: 2rem;
+	border: 2px solid var(--color-dark);
+	border-radius: 100px;
+	padding: 1.2rem 2.4rem;
 }
 
-.btn-disabled{
-    background-color: var(--color-darkest);
-    cursor: not-allowed;
-    color:gray;
+.btn-disabled {
+	background-color: var(--color-darkest);
+	cursor: not-allowed;
+	color: gray;
 }
 
 .btn:not([disabled]):hover {
@@ -151,7 +151,8 @@ progress {
 	cursor: not-allowed;
 }
 
-.btn-ui, .btn-disabled {
+.btn-ui,
+.btn-disabled {
 	float: right;
 }
 
