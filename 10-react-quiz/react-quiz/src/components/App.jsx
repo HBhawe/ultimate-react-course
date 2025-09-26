@@ -4,6 +4,7 @@ import Header from "./Header.jsx";
 import Loader from "./Loader.jsx";
 import MainContent from "./MainContent.jsx";
 import NextButton from "./NextButton.jsx";
+import Progress from "./Progress.jsx";
 import Question from "./Question.jsx";
 import StartScreen from "./StartScreen.jsx";
 
@@ -50,12 +51,14 @@ function reducer(state, action) {
 }
 
 function App() {
-	const [{ questions, status, index, answer }, dispatch] = useReducer(
+	const [{ questions, status, index, answer, points }, dispatch] = useReducer(
 		reducer,
 		initialState,
 	);
 
+	// derived state
 	const numQuestions = questions.length;
+	const maxPoints = questions.reduce((prev, cur) => prev + cur.points, 0);
 
 	useEffect(() => {
 		fetch("http://localhost:8000/questions", {})
@@ -75,6 +78,13 @@ function App() {
 				)}
 				{status === "active" && (
 					<>
+						<Progress
+							index={index}
+							numQuestions={numQuestions}
+							points={points}
+							maxPoints={maxPoints}
+							answer={answer}
+						/>
 						<Question
 							question={questions[index]}
 							dispatch={dispatch}
