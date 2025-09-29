@@ -8,9 +8,11 @@
 		"build": "vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"biome": "npx @biomejs/biome format --write && npx @biomejs/biome lint --write && npx @biomejs/biome check --write"
+		"biome": "npx @biomejs/biome format --write && npx @biomejs/biome lint --write && npx @biomejs/biome check --write",
+		"server": "json-server --watch data/cities.json --port 8000"
 	},
 	"dependencies": {
+		"json-server": "^1.0.0-beta.3",
 		"react": "^19.1.1",
 		"react-dom": "^19.1.1",
 		"react-router-dom": "^7.9.3"
