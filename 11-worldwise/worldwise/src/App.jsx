@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./pages/AppLayout.jsx";
 import Homepage from "./pages/Homepage.jsx";
 import Login from "./pages/Login.jsx";
@@ -43,10 +43,7 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         <Route path="app" element={<AppLayout />}>
-          <Route
-            index
-            element={<CityList cities={cities} isLoading={isLoading} />}
-          />
+          <Route index element={<Navigate to="cities" />} />
           <Route
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
