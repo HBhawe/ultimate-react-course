@@ -1,88 +1,40 @@
 {
-  "cities": [
-    {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": "73930385"
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "17806751"
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
-    },
-    {
-      "id": "7e51",
-      "cityName": "Castello de la Plana",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2025-10-06T09:12:55.643Z",
-      "notes": "2342342345",
-      "position": {
-        "lat": "40.01499435375048",
-        "lng": "-0.03845214843750001"
-      }
-    },
-    {
-      "id": "73de",
-      "cityName": "Teruel",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2025-10-06T09:15:32.063Z",
-      "notes": "fghfgh",
-      "position": {
-        "lat": "40.35910267579199",
-        "lng": "-1.0711669921875002"
-      }
-    },
-    {
-      "id": "818c",
-      "cityName": "Stockholm",
-      "country": "Sweden",
-      "emoji": "🇸🇪",
-      "date": "2025-02-04T10:18:12.000Z",
-      "notes": "Testing",
-      "position": {
-        "lat": "59.32478310834112",
-        "lng": "18.094482421875004"
-      }
-    },
-    {
-      "id": "b2ca",
-      "cityName": "Vasteras",
-      "country": "Sweden",
-      "emoji": "🇸🇪",
-      "date": "2025-10-06T09:19:24.678Z",
-      "notes": "acd",
-      "position": {
-        "lat": "59.620547310812235",
-        "lng": "16.600341796875004"
-      }
-    }
-  ]
+	"cities": [
+		{
+			"cityName": "Madrid",
+			"country": "Spain",
+			"emoji": "🇪🇸",
+			"date": "2027-07-15T08:22:53.976Z",
+			"notes": "",
+			"position": {
+				"lat": 40.46635901755316,
+				"lng": -3.7133789062500004
+			},
+			"id": "17806751"
+		},
+		{
+			"id": "73de",
+			"cityName": "Teruel",
+			"country": "Spain",
+			"emoji": "🇪🇸",
+			"date": "2025-10-06T09:15:32.063Z",
+			"notes": "fghfgh",
+			"position": {
+				"lat": "40.35910267579199",
+				"lng": "-1.0711669921875002"
+			}
+		},
+		{
+			"id": "818c",
+			"cityName": "Stockholm",
+			"country": "Sweden",
+			"emoji": "🇸🇪",
+			"date": "2025-02-04T10:18:12.000Z",
+			"notes": "Testing",
+			"position": {
+				"lat": "59.32478310834112",
+				"lng": "18.094482421875004"
+			}
+		}
+	]
 }
