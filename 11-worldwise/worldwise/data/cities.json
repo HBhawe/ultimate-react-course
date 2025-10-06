@@ -1,30 +1,6 @@
 {
 	"cities": [
 		{
-			"cityName": "Madrid",
-			"country": "Spain",
-			"emoji": "🇪🇸",
-			"date": "2027-07-15T08:22:53.976Z",
-			"notes": "",
-			"position": {
-				"lat": 40.46635901755316,
-				"lng": -3.7133789062500004
-			},
-			"id": "17806751"
-		},
-		{
-			"id": "73de",
-			"cityName": "Teruel",
-			"country": "Spain",
-			"emoji": "🇪🇸",
-			"date": "2025-10-06T09:15:32.063Z",
-			"notes": "fghfgh",
-			"position": {
-				"lat": "40.35910267579199",
-				"lng": "-1.0711669921875002"
-			}
-		},
-		{
 			"id": "818c",
 			"cityName": "Stockholm",
 			"country": "Sweden",
@@ -34,6 +10,18 @@
 			"position": {
 				"lat": "59.32478310834112",
 				"lng": "18.094482421875004"
+			}
+		},
+		{
+			"id": "b8d9",
+			"cityName": "Tallinn Roadstead",
+			"country": "Estonia",
+			"emoji": "🇪🇪",
+			"date": "2025-05-22T10:07:44.000Z",
+			"notes": "Great city",
+			"position": {
+				"lat": "59.445075099047166",
+				"lng": "24.78515625"
 			}
 		}
 	]
